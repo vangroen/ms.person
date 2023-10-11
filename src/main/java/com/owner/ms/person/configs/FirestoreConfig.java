@@ -15,7 +15,7 @@ public class FirestoreConfig {
 
     @Bean
     public Firestore firestore() throws Exception {
-        FileInputStream serviceAccount = new FileInputStream("src/main/resources/static/secure.json");
+        FileInputStream serviceAccount = new FileInputStream("src/main/resources/secure.json");
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                 .build();
