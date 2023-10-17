@@ -56,9 +56,9 @@ public abstract class GenericServiceImpl<I, O> implements GenericService<I, O> {
     @Override
     public List<O> getAll() throws Exception {
         List<O> result = new ArrayList<O>();
-        ApiFuture<QuerySnapshot> query = getCollection().get();
-        List<QueryDocumentSnapshot> documents = query.get().getDocuments();
-        for (QueryDocumentSnapshot doc : documents) {
+        Query query = getCollection().orderBy("perCreatedAt", Query.Direction.DESCENDING);
+        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+        for (QueryDocumentSnapshot doc : querySnapshot.get().getDocuments()) {
             O object = doc.toObject(clazz);
             PropertyUtils.setProperty(object, "perId", doc.getId());
             result.add(object);

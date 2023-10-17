@@ -9,11 +9,12 @@ public class PersonDTO {
     private String perDocumento;
     private String perEmail;
     private String perCelular;
+    private String perCreatedAt;
 
     public PersonDTO() {
     }
 
-    public PersonDTO(String perId, String perUUID, String perNombre, String perApellido, String perDocumento, String perEmail, String perCelular) {
+    public PersonDTO(String perId, String perUUID, String perNombre, String perApellido, String perDocumento, String perEmail, String perCelular, String perCreatedAt) {
         this.perId = perId;
         this.perUUID = perUUID;
         this.perNombre = perNombre;
@@ -21,6 +22,7 @@ public class PersonDTO {
         this.perDocumento = perDocumento;
         this.perEmail = perEmail;
         this.perCelular = perCelular;
+        this.perCreatedAt = perCreatedAt;
     }
 
     public String getPerId() {
@@ -77,5 +79,13 @@ public class PersonDTO {
 
     public void setPerCelular(String perCelular) {
         this.perCelular = perCelular;
+    }
+
+    public String getPerCreatedAt() {
+        return perCreatedAt;
+    }
+
+    public void setPerCreatedAt(String perCreatedAt) {
+        this.perCreatedAt = perCreatedAt;
     }
 }

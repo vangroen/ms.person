@@ -1,5 +1,7 @@
 package com.owner.ms.person.models;
 
+import java.time.LocalDate;
+
 public class PersonModel {
 
     private String perUUID;
@@ -8,17 +10,19 @@ public class PersonModel {
     private String perDocumento;
     private String perEmail;
     private String perCelular;
+    private String perCreatedAt;
 
     public PersonModel() {
     }
 
-    public PersonModel(String perUUID, String perNombre, String perApellido, String perDocumento, String perEmail, String perCelular) {
+    public PersonModel(String perUUID, String perNombre, String perApellido, String perDocumento, String perEmail, String perCelular, String perCreatedAt) {
         this.perUUID = perUUID;
         this.perNombre = perNombre;
         this.perApellido = perApellido;
         this.perDocumento = perDocumento;
         this.perEmail = perEmail;
         this.perCelular = perCelular;
+        this.perCreatedAt = perCreatedAt;
     }
 
     public String getPerUUID() {
@@ -67,5 +71,13 @@ public class PersonModel {
 
     public void setPerCelular(String perCelular) {
         this.perCelular = perCelular;
+    }
+
+    public String getPerCreatedAt() {
+        return perCreatedAt;
+    }
+
+    public void setPerCreatedAt(String perCreatedAt) {
+        this.perCreatedAt = perCreatedAt;
     }
 }

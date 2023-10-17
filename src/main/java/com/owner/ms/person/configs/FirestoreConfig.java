@@ -8,20 +8,16 @@ import com.google.firebase.cloud.FirestoreClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import java.io.InputStream;
 
-import java.io.FileInputStream;
-
-@PropertySource("classpath:application.properties")
 @Configuration
 public class FirestoreConfig {
 
-    @Value("${secure.json.path}")
-    private String secureJsonPath;
-
     @Bean
     public Firestore firestore() throws Exception {
-        FileInputStream serviceAccount = new FileInputStream(secureJsonPath);
+//        FileInputStream serviceAccount = new FileInputStream(secureJsonPath);
+        InputStream serviceAccount = getClass().getResourceAsStream("/secure.json");
+
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                 .build();
